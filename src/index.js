@@ -1,6 +1,17 @@
-console.log("Hello there");
+import { initialdomManip } from "./Initial-dom-manipulation";
+import { blankProjectLoad } from "./blank-project-load";
+import { createToDo } from "./create-to-do";
+  
+// Call blankProjectLoad on first 
+blankProjectLoad();
 
-const contentDiv = document.querySelector('.content');
-const testH1 = document.createElement('h1');
-testH1.textContent = "Hello World... How are you doing?";
-contentDiv.appendChild(testH1);
+//Call DOM Manipulation module for UI
+initialdomManip();
+
+//TODO: Click event module here for todo and project creations
+
+//create-to-do.js module file and apply some objects properties
+let myToDo = createToDo("Grocery Run", "Go get groceries", "15/11/2022", "Low", "Meat, Eggs, Milk");
+
+console.log('console log properties on myToDo from index.js....', myToDo);
+
