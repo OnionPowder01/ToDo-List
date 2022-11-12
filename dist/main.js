@@ -1,0 +1,1 @@
+(()=>{console.log("Hello there");const e=document.querySelector(".content"),o=document.createElement("h1");o.textContent="Hello World... How are you doing?",e.appendChild(o)})();
