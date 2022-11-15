@@ -1,16 +1,24 @@
 {
   "name": "todo-list",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnionPowder01/ToDo-List.git"
+  },
+  "keywords": [
+    "todo-list"
+  ],
+  "author": "OnionPowder01",
+  "license": "MIT",
+  "homepage": "https://github.com/OnionPowder01/ToDo-List",
   "devDependencies": {
+    "css-loader": "^6.7.2",
+    "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0"
   },
