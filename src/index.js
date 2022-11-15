@@ -1,6 +1,8 @@
 import { displayDefaultProject, displayTheForm, addItemToCheckList, clearForm } from "./dom-manipulation";
+import { remove } from "lodash";
 import { blankProjectLoad } from "./blank-project-load";
 import { createToDo } from "./create-to-do";
+import './style.css';
   
 // Call blankProjectLoad on first 
 blankProjectLoad();
@@ -21,6 +23,10 @@ let clickEventsModule = (function() {
     //Clear the form
     const clearButton = document.querySelector(".reset-button");
     clearButton.addEventListener("click", clearForm()); 
+
+    //Event to submit new todo to project
+    const submitButton = document.querySelector(".submit-button");
+    submitButton.addEventListener("click", createToDo());
 })();
 
 
@@ -28,4 +34,6 @@ let clickEventsModule = (function() {
 let myToDo = createToDo("Grocery Run", "Go get groceries", "15/11/2022", "Low", "Meat, Eggs, Milk");
 
 console.log('console log properties on myToDo from index.js....', myToDo);
+
+
 
