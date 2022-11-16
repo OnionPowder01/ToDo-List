@@ -25,8 +25,31 @@ export const createToDo = () => {
         console.log("due date", parseIso(dueDate));
         console.log('date now', startOfToday());
         return
-
     }
+    //Loop over the nodelist for check list items from the DOM
+    const nodeListCheckList = document.querySelectorAll('li');
+    let checkListArray = [];
+    for (let i = 0; i < nodeListCheckList.length; i++) {
+        
+        //push the "x" to temp array
+        let strippedCheckList = nodeListCheckList[i].textContent.replace("\u00D7", '');
+        checkListArray.push(strippedCheckList);
+    };
+
+    let checklist = checkListArray.join(", ");
+
+    console.log('Called createToDo module.. creating todo now');
+    console.log({ title, description, dueDate, priority, checklist });
+    console.log("Pushing this object to the toDoArray");
+    
+    
+    toDoArray.push({ title, description, dueDate, priority, checklist });
+    console.log(toDoArray);
+
+    //Reset the form after succesful submission
+    clearForm();
+
+    return { title, description, dueDate, priority, checklist };
     
     
 }

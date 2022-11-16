@@ -15,7 +15,7 @@ export function displayTheForm() {
 }
 
 export function addItemToCheckList() {
-    const addItem = document.getElementById("add-todo-checklist").value;
+    const addItem = document.getElementById("add-to-checklist").value;
   
     /* _________ Check if input inbox is empty and button was clicked __________ */
     //If not empty, apply contents to new li in DOM
@@ -33,9 +33,9 @@ export function addItemToCheckList() {
         document.getElementById("add-to-checklist").value = "";
         
         //DOM check for existing check list items already present
-        if(document.querySelectorAll("li").length > 0) {
-            console.log("Inside module if...", document.querySelectorAll("li").length);
-            const nodeListCheckList = document.querySelector("li");
+        if(document.querySelectorAll(".form-li").length > 0) {
+            console.log("Inside module if...", document.querySelectorAll(".form-li").length);
+            const nodeListCheckList = document.querySelector(".form-li");
             console.log(nodeListCheckList);
 
             //DOM to bind click event to each node in nodelist and remove node if clicked
