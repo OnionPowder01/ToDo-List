@@ -54,4 +54,37 @@ export function clearForm() {
         nodeListCheckList[i].remove(); 
     }
     document.getElementById("add-todo").reset();
+};
+
+export function displayToDo() {
+
+    //Check and clear current DOM displays
+    const removeDivs = document.querySelectorAll('.card');
+    for (let i = 0; i < removeDivs.length; i++) {
+        removeDivs[i].remove();
+    };
+
+    //Create DOM card display
+    const projects = document.querySelector('.projects');
+    const card = document.createElement("div");
+    card.classList.add("card");
+    projects.appendChild(card);
+
+    //Take data from local storage
+    let Title = localStorage.getItem("Title");
+    let Description = localStorage.getItem("Description");
+    let DueDate = localStorage.getItem("DueDate");
+    let Priority = localStorage.getItem("Priority");
+    let CheckList = localStorage.getItem("CheckList");
+
+    //put data in local temp array and loop over key pairs to display to DOM
+    let displayArray =  { Title, Description, DueDate, Priority, CheckList };
+    console.log(displayArray);
+
+    for (let key in displayArray) {
+        console.log(`${key}: ${displayArray[key]}`);
+        const p = document.createElement('p');
+        p.textContent = (`${key}: ${displayArray[key]}`);
+        card.appendChild(p);
+    }
 }
