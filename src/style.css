@@ -20,7 +20,7 @@ html, body {
 }
 
 .projects .card {
-    background-color: #68a2ec;
+    background-color: var(--main-bg-color);
     color: black;
     text-align: center;
     min-height: 400px;
