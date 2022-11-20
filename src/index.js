@@ -1,12 +1,13 @@
-import { displayDefaultProject, displayTheForm, addItemToCheckList, clearForm } from "./dom-manipulation";
+import { displayDefaultProject, displayTheForm, addItemToCheckList, clearForm, displayToDo } from "./dom-manipulation.js";
 import { remove } from "lodash";
-import { blankProjectLoad } from "./blank-project-load";
-import { createToDo } from "./create-to-do";
+import { blankProjectLoad } from "./blank-project-load.js";
+import { createToDo } from "./create-to-do.js";
 import './style.css';
   
 // Call blankProjectLoad on first 
 blankProjectLoad();
 
+displayToDo();
 
 
 //Event Module
