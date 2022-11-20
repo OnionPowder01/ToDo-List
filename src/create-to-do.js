@@ -25,8 +25,6 @@ export const createToDo = () => {
     alert(
       "You have entered a date that has already passed! Please enter a date greater than or equal to today. "
     );
-    console.log("due date", parseIso(DueDate));
-    console.log("date now", startOfToday());
     return;
   }
   //Loop over the nodelist for check list items from the DOM
@@ -44,12 +42,7 @@ export const createToDo = () => {
 
   let Checklist = checkListArray.join(", ");
 
-  console.log("Called createToDo module.. creating todo now");
-  console.log({ Title, Description, DueDate, Priority, Checklist });
-  console.log("Pushing this object to the toDoArray");
-
   toDoArray.push({ Title, Description, DueDate, Priority, Checklist });
-  console.log(toDoArray);
 
   saveToDoLocal({ Title, Description, DueDate, Priority}, Checklist);
   
@@ -57,6 +50,6 @@ export const createToDo = () => {
   clearForm();
 
   //Storage module for pushing to local storage
-  return ({ Title, Description, DueDate, Priority}, Checklist);
+  return { Title, Description, DueDate, Priority}, Checklist;
   
 };

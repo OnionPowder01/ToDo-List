@@ -58,14 +58,14 @@ export function clearForm() {
 
 export function displayToDo() {
 
-    // Gather data from local backend storage and initialize
+    // Gather data from local storage and initialize
     let Title = localStorage.getItem("Title");
     let Description = localStorage.getItem("Description");
     let DueDate = localStorage.getItem("DueDate");
     let Priority = localStorage.getItem("Priority");
     let CheckList = localStorage.getItem("CheckList");
 
-    // Check to ensure local storage is present to load, otherwise gracefully return out - avoid app crash
+    // Check to ensure local storage is present to load, otherwise return out - avoid app crash
     if (Title == null || Description == null || DueDate == null || Priority == null) {
         return;
     }
@@ -77,7 +77,6 @@ export function displayToDo() {
     }
 
     // Create the display card for the display DOM
-    console.log("display to screen");
     const projects = document.querySelector(".projects");
     const card = document.createElement("div");
     card.classList.add("card");
@@ -86,7 +85,7 @@ export function displayToDo() {
     // Create delete todo card button/event listener to remove card from display
     const deleteToDoButton = document.createElement("button");
     deleteToDoButton.classList.add("remove-todo-button");
-    deleteToDoButton.textContent = "Delete/Complete ToDo";
+    deleteToDoButton.textContent = "Delete/Complete ToDo"; 
     card.appendChild(deleteToDoButton);
     deleteToDoButton.addEventListener("click", function deleteToDo() {
         card.remove();
@@ -113,9 +112,8 @@ export function displayToDo() {
     para[para.length - 1].appendChild(ul);
     ul.appendChild(CheckListLabel);
 
-    console.log("show me the contents of checklist from local storage...", CheckList);
     let _checkListArray = CheckList.split(",");
-    console.log("contents of temp checklistarray....", _checkListArray);
+
 
     if (CheckList !== "") {
     // Loop through the temp checklistarray to create an li and display to DOM for each

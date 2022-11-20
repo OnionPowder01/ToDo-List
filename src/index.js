@@ -7,6 +7,7 @@ import './style.css';
 // Call blankProjectLoad on first 
 blankProjectLoad();
 
+// Call displayToDo to pull from web local storage
 displayToDo();
 
 
