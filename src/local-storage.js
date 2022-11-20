@@ -1,12 +1,12 @@
+import { displayToDo } from "./dom-manipulation.js";
 
-
-export function savetoDoLocal( { title, description, dueDate, priority, checkList } ) {
-    console.log ("Saving object to local storage....");
+export function saveToDoLocal({ Title, Description, DueDate, Priority }, CheckList) {
+    console.log("Saving object to local storage....");
     localStorage.setItem("Title", document.getElementById("Title").value);
     localStorage.setItem("Description", document.getElementById("Description").value);
     localStorage.setItem("DueDate", document.getElementById("DueDate").value);
     localStorage.setItem("Priority", document.getElementById("Priority").value);
-    localStorage.setItem("CheckList", checkList);
-    
-    return { title, description, dueDate, priority, checkList };
+    localStorage.setItem("CheckList", CheckList);
+    displayToDo();
+    return { Title, Description, DueDate, Priority }, CheckList;
 }
