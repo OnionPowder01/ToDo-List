@@ -2,7 +2,7 @@
 
 ## [Live Demo](https://onionpowder01.github.io/ToDo-List/)
 
-![This is an image](![image](https://user-images.githubusercontent.com/106592392/203120253-c9f24f0d-9163-4f9d-baba-ff94eb950e07.png))
+![This is an image](https://user-images.githubusercontent.com/106592392/203120253-c9f24f0d-9163-4f9d-baba-ff94eb950e07.png)
 
 JavaScript ToDo-List project in the curriculum of The Odin Project
 
