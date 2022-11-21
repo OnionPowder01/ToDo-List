@@ -16,13 +16,14 @@ export function displayTheForm() {
 
 export function addItemToCheckList() {
     const addItem = document.getElementById("add-to-checklist").value;
-  
-    /* _________ Check if input inbox is empty and button was clicked __________ */
-    //If not empty, apply contents to new li in DOM
     
+    // Run check to see if the input box is empty and button was clicked
+    // If so, return out of this function gracefully - do nothing
+    // If not, apply contents to new li in DOM
     if (addItem !== "") {
         const ul = document.querySelector(".todo-ul");
         const li = document.createElement("li");
+        li.className = "form-li";
         li.textContent = addItem;
         const span = document.createElement("span");
         span.className = "remove-checklist-item";
@@ -31,16 +32,16 @@ export function addItemToCheckList() {
         span.appendChild(removeIcon);
         ul.appendChild(li);
         document.getElementById("add-to-checklist").value = "";
-        
-        //DOM check for existing check list items already present
-        if(document.querySelectorAll(".form-li").length > 0) {
-            console.log("Inside module if...", document.querySelectorAll(".form-li").length);
-            const nodeListCheckList = document.querySelector(".form-li");
-            console.log(nodeListCheckList);
 
-            //DOM to bind click event to each node in nodelist and remove node if clicked
+        // DOM check for existing check list items already present
+        if (document.querySelectorAll(".form-li").length > 0) {
+            console.log("INSIDE MODULE IF....,", document.querySelectorAll(".form-li").length);
+            const nodeListCheckList = document.querySelectorAll(".form-li");
+            console.log(nodeListCheckList);
+            
+            // DOM to bind click event to each node in nodelist and remove node if clicked
             nodeListCheckList.forEach(checkListItem => {
-                checkListItem.addEventListener("click", function removeItemFromCheckList() {
+                checkListItem.addEventListener("click", function removeItemFromChecklist() {
                     checkListItem.remove();
                 });
             })
@@ -56,16 +57,17 @@ export function clearForm() {
     document.getElementById("add-todo").reset();
 };
 
+
 export function displayToDo() {
 
-    // Gather data from local storage and initialize
+    // Gather data from local backend storage and initialize
     let Title = localStorage.getItem("Title");
     let Description = localStorage.getItem("Description");
     let DueDate = localStorage.getItem("DueDate");
     let Priority = localStorage.getItem("Priority");
     let CheckList = localStorage.getItem("CheckList");
 
-    // Check to ensure local storage is present to load, otherwise return out - avoid app crash
+    // Check to ensure local storage is present to load, otherwise gracefully return out - avoid app crash
     if (Title == null || Description == null || DueDate == null || Priority == null) {
         return;
     }
@@ -77,6 +79,7 @@ export function displayToDo() {
     }
 
     // Create the display card for the display DOM
+    console.log("display to screen");
     const projects = document.querySelector(".projects");
     const card = document.createElement("div");
     card.classList.add("card");
@@ -85,7 +88,7 @@ export function displayToDo() {
     // Create delete todo card button/event listener to remove card from display
     const deleteToDoButton = document.createElement("button");
     deleteToDoButton.classList.add("remove-todo-button");
-    deleteToDoButton.textContent = "Delete/Complete ToDo"; 
+    deleteToDoButton.textContent = "Delete/Complete ToDo";
     card.appendChild(deleteToDoButton);
     deleteToDoButton.addEventListener("click", function deleteToDo() {
         card.remove();
@@ -112,8 +115,9 @@ export function displayToDo() {
     para[para.length - 1].appendChild(ul);
     ul.appendChild(CheckListLabel);
 
+    console.log("show me the contents of checklist from local storage...", CheckList);
     let _checkListArray = CheckList.split(",");
-
+    console.log("contents of temp checklistarray....", CheckList);
 
     if (CheckList !== "") {
     // Loop through the temp checklistarray to create an li and display to DOM for each
@@ -147,5 +151,7 @@ export function displayToDo() {
                 liNode.className = "done";
             }
         })
-    }
+    };
+    
+    console.log(`hi there checklist ${CheckList}`);
 }

@@ -28,8 +28,8 @@ export const createToDo = () => {
     return;
   }
   //Loop over the nodelist for check list items from the DOM
-  const nodeListCheckList = document.querySelectorAll("form.li");
-  let checkListArray = [];
+  const nodeListCheckList = document.querySelectorAll(".form-li");
+  let _checkListArray = [];
   for (let i = 0; i < nodeListCheckList.length; i++) {
 
     //push the "x" to temp array
@@ -37,14 +37,17 @@ export const createToDo = () => {
       "\u00D7",
       ""
     );
-    checkListArray.push(strippedCheckList);
+    _checkListArray.push(strippedCheckList);
   }
 
-  let Checklist = checkListArray.join(", ");
+  console.log(`hi there JSON ` + JSON.stringify(nodeListCheckList));
+
+  let Checklist = _checkListArray.join(", ");
+  console.log(`here is the ${Checklist}`);
 
   toDoArray.push({ Title, Description, DueDate, Priority, Checklist });
 
-  saveToDoLocal({ Title, Description, DueDate, Priority}, Checklist);
+  saveToDoLocal({ Title, Description, DueDate, Priority }, Checklist);
   
   //Reset the form after succesful submission
   clearForm();
